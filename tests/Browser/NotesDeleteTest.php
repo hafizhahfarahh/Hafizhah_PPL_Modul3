@@ -6,11 +6,11 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
-class NotesShowTest extends DuskTestCase
+class NotesDeleteTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
-     * @group show-note
+     * @group delete-notes
      */
     public function testExample(): void
     {
@@ -26,8 +26,8 @@ class NotesShowTest extends DuskTestCase
             ->assertSee('Dashboard')
             ->clickLink(link: 'Notes')
             ->assertPathIs(path: '/notes')
-            ->click('@detail-4')
-            ->assertPathIs('/note/4');
+            ->press('Delete')
+            ->assertPathIs(path: '/notes');
         });
     }
 }
